@@ -1,15 +1,15 @@
-import * as vscode from "vscode";
+import * as vs from "vscode";
 import * as utils from "./utils";
 
 const console = utils;
 
-export function activate(context: vscode.ExtensionContext) {
+export function activate(context: vs.ExtensionContext) {
   console.log("Activated");
   console.log(utils.getConfig("hover"));
   console.log(utils.getConfig("showCommon"));
 
-  let disposable = vscode.commands.registerCommand("my-ext.helloWorld", () => {
-    vscode.window.showInformationMessage("Hello World from my-ext!");
+  let disposable = vs.commands.registerCommand("my-ext.helloWorld", () => {
+    vs.window.showInformationMessage("Hello World from my-ext!");
     console.log("Hello World from my-ext!");
   });
 
