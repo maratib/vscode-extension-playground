@@ -1,9 +1,25 @@
 {
   "name": "my-ext",
   "displayName": "My Ext",
-  "description": "abc",
+  "description": "abc def",
+  "icon": "img/icon.png",
   "version": "0.0.1",
   "license": "MIT",
+  "keywords": [
+    "typescript",
+    "package",
+    "library"
+  ],
+  "author": {
+    "name": "Your Full Name",
+    "email": "your@mail.com",
+    "url": "https://your.com"
+  },
+  "homepage": "https://github.com/your/ext-repo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your/ext-repo.git"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
