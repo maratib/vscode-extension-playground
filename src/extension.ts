@@ -10,7 +10,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   let disposable = vscode.commands.registerCommand("my-ext.helloWorld", () => {
     vscode.window.showInformationMessage("Hello World from my-ext!");
-    console.log("abc Hello World from my-ext!");
+    console.log("Hello World from my-ext!");
   });
 
   context.subscriptions.push(disposable);
