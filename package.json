@@ -1,6 +1,6 @@
 {
-  "name": "my-webview-ext",
-  "displayName": "my-webview-ext",
+  "name": "my-ext",
+  "displayName": "My Ext",
   "description": "abc",
   "version": "0.0.1",
   "license": "MIT",
@@ -18,18 +18,32 @@
   "contributes": {
     "commands": [
       {
-        "command": "my-webview-ext.helloWorld",
-        "title": "Hello World 3"
+        "command": "my-ext.helloWorld",
+        "title": "Hello World"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "My Ext configuration",
+      "properties": {
+        "my-ext.hover": {
+          "type": "string",
+          "default": "hover on hay",
+          "description": "Whether to enable/disable hover."
+        },
+        "my-ext.showCommon": {
+          "type": "boolean",
+          "default": false,
+          "description": "Shows comments etc"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "yarn run compile && yarn run lint",
-    "lint": "eslint src --ext ts",
-    "test": "vscode-test"
+    "lint": "eslint src --ext ts"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.6",

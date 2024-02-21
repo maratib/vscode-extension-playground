@@ -2,9 +2,11 @@ import * as vscode from "vscode";
 import * as fs from "fs";
 import path from "path";
 
-const channel = vscode.window.createOutputChannel("my-webview-ext");
+export const EXT_NAME = "my-ext";
 
-export function watchForExtensionChanges(REFRESH_COMMAND: string) {
+const channel = vscode.window.createOutputChannel(EXT_NAME);
+
+export function watchForExtensionChanges() {
   const uiFolderPath = path.resolve(__dirname, "../out"); // Replace with the actual path to your
   fs.watch(
     uiFolderPath,
@@ -12,7 +14,7 @@ export function watchForExtensionChanges(REFRESH_COMMAND: string) {
     (eventType: string, filename: any) => {
       // console.log(`File ${filename} changed`, eventType);
       if (eventType === "change") {
-        vscode.commands.executeCommand(REFRESH_COMMAND);
+        vscode.commands.executeCommand("workbench.action.reloadWindow");
       }
     }
   );
@@ -25,8 +27,8 @@ export const getRootPath = () => {
     : undefined;
 };
 
-export const getConfig = () => {
-  return vscode.workspace.getConfiguration("my-webview-ext");
+export const getConfig = (key: string) => {
+  return vscode.workspace.getConfiguration(EXT_NAME)?.get(key);
 };
 
 export const log = (msg: any) => {
