@@ -2,6 +2,7 @@
 
 ```bash
 yarn
+# Open split terminal and run
 yarn watch
 
 # updated run.sh accordingly
